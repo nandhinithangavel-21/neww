@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zara Bloom — Women's Fashion Boutique</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--rose:#f9e8e8;--rose2:#f2c5c5;--rose3:#e8a0a0;--rose4:#c97a7a;--rose5:#a85555;
+--sage:#e8f0eb;--sage2:#c5d9cb;--sage3:#8ab09a;
+--cream:#fdf8f4;--cream2:#f5ede3;--cream3:#e8d5c0;
+--charcoal:#2a2420;--mid:#5a4a42;--muted:#9a8a82;
+--gold:#c9a96e;--gold2:#b8943a;
+--font-h:Cormorant Garamond,serif;
+--font-b:DM Sans,sans-serif;
+--r:12px;--rs:8px;
+}
+body{font-family:var(--font-b);background:var(--cream);color:var(--charcoal);min-height:100vh}
+h1,h2,h3,h4{font-family:var(--font-h)}
+
+/* NAV */
+nav{background:#fff;border-bottom:1px solid var(--rose2);position:sticky;top:0;z-index:100;padding:0 2rem}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:1200px;margin:0 auto}
+.logo{font-family:var(--font-h);font-size:1.8rem;font-weight:600;color:var(--charcoal);letter-spacing:0.05em;cursor:pointer}
+.logo span{color:var(--rose4)}
+.nav-links{display:flex;gap:1.5rem;list-style:none}
+.nav-links a{font-size:0.85rem;font-weight:500;color:var(--mid);text-decoration:none;letter-spacing:0.05em;text-transform:uppercase;transition:color 0.2s;cursor:pointer}
+.nav-links a:hover{color:var(--charcoal)}
+.nav-actions{display:flex;gap:1rem;align-items:center}
+.icon-btn{background:none;border:none;cursor:pointer;font-size:1.1rem;color:var(--mid);position:relative;padding:0.3rem;transition:color 0.2s}
+.icon-btn:hover{color:var(--charcoal)}
+.cart-badge{position:absolute;top:-4px;right:-4px;background:var(--rose4);color:#fff;border-radius:50%;width:16px;height:16px;font-size:10px;display:flex;align-items:center;justify-content:center;font-weight:600}
+.search-bar{display:flex;align-items:center;gap:0.5rem;background:var(--cream2);border-radius:20px;padding:0.4rem 1rem;border:1px solid var(--rose2)}
+.search-bar input{border:none;background:transparent;font-size:0.85rem;color:var(--charcoal);outline:none;width:160px}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,var(--rose) 0%,var(--cream2) 50%,var(--sage) 100%);padding:5rem 2rem;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c97a7a' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.hero-tag{display:inline-block;background:var(--rose2);color:var(--rose5);font-size:0.75rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;padding:0.4rem 1.2rem;border-radius:20px;margin-bottom:1.5rem}
+.hero h1{font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;line-height:1.1;margin-bottom:1.5rem;letter-spacing:0.02em}
+.hero h1 em{font-style:italic;color:var(--rose4)}
+.hero p{font-size:1rem;color:var(--mid);max-width:500px;margin:0 auto 2rem;line-height:1.7}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--charcoal);color:#fff;border:none;padding:0.85rem 2rem;border-radius:2rem;font-size:0.9rem;font-weight:500;cursor:pointer;transition:all 0.2s;letter-spacing:0.05em}
+.btn-primary:hover{background:var(--mid);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--charcoal);border:1.5px solid var(--charcoal);padding:0.85rem 2rem;border-radius:2rem;font-size:0.9rem;font-weight:500;cursor:pointer;transition:all 0.2s;letter-spacing:0.05em}
+.btn-outline:hover{background:var(--charcoal);color:#fff}
+
+/* SECTIONS */
+.section{max-width:1200px;margin:0 auto;padding:4rem 2rem}
+.section-title{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;text-align:center;margin-bottom:0.5rem;letter-spacing:0.02em}
+.section-title em{font-style:italic;color:var(--rose4)}
+.section-sub{text-align:center;color:var(--muted);font-size:0.9rem;margin-bottom:3rem;letter-spacing:0.05em;text-transform:uppercase}
+
+/* CATEGORIES */
+.cats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1rem}
+.cat-card{background:#fff;border-radius:var(--r);padding:1.5rem 1rem;text-align:center;cursor:pointer;transition:all 0.25s;border:1.5px solid transparent;box-shadow:0 2px 8px rgba(42,36,32,0.06)}
+.cat-card:hover{border-color:var(--rose3);transform:translateY(-3px);box-shadow:0 6px 20px rgba(42,36,32,0.1)}
+.cat-icon{font-size:2rem;margin-bottom:0.75rem}
+.cat-name{font-size:0.85rem;font-weight:600;color:var(--charcoal);letter-spacing:0.05em;text-transform:uppercase}
+.cat-count{font-size:0.75rem;color:var(--muted);margin-top:0.3rem}
+
+/* PRODUCTS GRID */
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.5rem}
+.product-card{background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:0 2px 8px rgba(42,36,32,0.06);transition:all 0.25s;cursor:pointer;border:1px solid var(--cream3)}
+.product-card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(42,36,32,0.12)}
+.product-img{position:relative;background:linear-gradient(135deg,var(--rose) 0%,var(--cream2) 100%);height:280px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.product-emoji{font-size:5rem;filter:drop-shadow(0 4px 8px rgba(0,0,0,0.1))}
+.product-badges{position:absolute;top:10px;left:10px;display:flex;flex-direction:column;gap:5px}
+.badge{font-size:0.65rem;font-weight:700;padding:0.25rem 0.6rem;border-radius:4px;letter-spacing:0.08em;text-transform:uppercase}
+.badge-new{background:var(--charcoal);color:#fff}
+.badge-sale{background:var(--rose4);color:#fff}
+.badge-sold{background:#888;color:#fff}
+.wishlist-btn{position:absolute;top:10px;right:10px;background:#fff;border:none;border-radius:50%;width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;box-shadow:0 2px 6px rgba(0,0,0,0.1);transition:all 0.2s}
+.wishlist-btn:hover{transform:scale(1.1)}
+.product-info{padding:1rem}
+.product-name{font-size:1rem;font-weight:500;margin-bottom:0.25rem;font-family:var(--font-h);font-size:1.1rem}
+.product-cat{font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:0.5rem}
+.product-price{display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem}
+.price-current{font-size:1.1rem;font-weight:600;color:var(--charcoal)}
+.price-old{font-size:0.9rem;color:var(--muted);text-decoration:line-through}
+.price-discount{font-size:0.75rem;color:var(--rose4);font-weight:600}
+.sizes-row{display:flex;gap:0.4rem;flex-wrap:wrap;margin-bottom:0.75rem}
+.size-chip{font-size:0.7rem;font-weight:600;padding:0.2rem 0.5rem;border:1px solid var(--cream3);border-radius:4px;color:var(--mid);letter-spacing:0.05em}
+.size-chip.out{opacity:0.35;text-decoration:line-through}
+.add-btn{width:100%;background:var(--charcoal);color:#fff;border:none;padding:0.65rem;border-radius:var(--rs);font-size:0.85rem;font-weight:500;cursor:pointer;transition:all 0.2s;letter-spacing:0.05em}
+.add-btn:hover:not(:disabled){background:var(--mid)}
+.add-btn:disabled{background:#ccc;cursor:not-allowed}
+
+/* REVIEWS */
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem}
+.review-card{background:#fff;border-radius:var(--r);padding:1.5rem;border:1px solid var(--cream3)}
+.review-stars{color:var(--gold);font-size:1rem;margin-bottom:0.75rem}
+.review-text{font-size:0.9rem;color:var(--mid);line-height:1.7;font-style:italic;margin-bottom:1rem;font-family:var(--font-h);font-size:1rem}
+.reviewer{display:flex;align-items:center;gap:0.75rem}
+.reviewer-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--rose2),var(--sage2));display:flex;align-items:center;justify-content:center;font-weight:600;font-size:0.85rem;color:var(--mid)}
+.reviewer-info small{color:var(--muted);font-size:0.75rem}
+
+/* FOOTER */
+footer{background:var(--charcoal);color:#fff;padding:3rem 2rem 1.5rem}
+.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin-bottom:2rem}
+.footer-brand h3{font-family:var(--font-h);font-size:1.6rem;font-weight:400;margin-bottom:0.75rem}
+.footer-brand p{font-size:0.85rem;color:#aaa;line-height:1.7}
+.footer-col h4{font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:600;margin-bottom:1rem;color:var(--rose2)}
+.footer-col ul{list-style:none}
+.footer-col ul li{margin-bottom:0.5rem}
+.footer-col ul li a{font-size:0.85rem;color:#aaa;text-decoration:none;cursor:pointer;transition:color 0.2s}
+.footer-col ul li a:hover{color:#fff}
+.social-links{display:flex;gap:0.75rem;margin-top:1rem}
+.social-btn{width:36px;height:36px;background:rgba(255,255,255,0.1);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1rem;transition:background 0.2s}
+.social-btn:hover{background:var(--rose4)}
+.footer-bottom{max-width:1200px;margin:0 auto;border-top:1px solid rgba(255,255,255,0.1);padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0.75rem}
+.footer-bottom p{font-size:0.8rem;color:#888}
+
+/* MODAL / PANELS */
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;display:flex;align-items:center;justify-content:center;padding:1rem}
+.modal{background:#fff;border-radius:var(--r);max-width:560px;width:100%;max-height:90vh;overflow-y:auto;position:relative}
+.modal-header{padding:1.5rem 1.5rem 1rem;border-bottom:1px solid var(--cream3);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:#fff;z-index:1}
+.modal-header h2{font-size:1.5rem;font-weight:400}
+.close-btn{background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--mid);padding:0.2rem}
+.modal-body{padding:1.5rem}
+
+/* PRODUCT DETAIL */
+.pdp-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.pdp-img{background:linear-gradient(135deg,var(--rose) 0%,var(--cream2) 100%);border-radius:var(--r);display:flex;align-items:center;justify-content:center;min-height:300px;font-size:8rem}
+.pdp-info h1{font-size:2rem;font-weight:300;margin-bottom:0.5rem;font-family:var(--font-h)}
+.pdp-prices{display:flex;align-items:center;gap:1rem;margin:1rem 0}
+.pdp-price-main{font-size:1.5rem;font-weight:600}
+.pdp-price-old{font-size:1rem;color:var(--muted);text-decoration:line-through}
+.pdp-discount{background:var(--rose2);color:var(--rose5);font-size:0.75rem;font-weight:700;padding:0.25rem 0.6rem;border-radius:4px}
+.size-label{font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:0.5rem;color:var(--mid)}
+.size-select{display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.size-btn{padding:0.4rem 0.9rem;border:1.5px solid var(--cream3);border-radius:var(--rs);font-size:0.8rem;font-weight:600;cursor:pointer;background:#fff;transition:all 0.15s;color:var(--mid)}
+.size-btn.active{border-color:var(--charcoal);background:var(--charcoal);color:#fff}
+.size-btn.unavail{opacity:0.35;cursor:not-allowed;text-decoration:line-through}
+.pdp-btns{display:flex;gap:0.75rem;flex-direction:column}
+.btn-buy{background:var(--rose4);color:#fff;border:none;padding:0.9rem;border-radius:var(--rs);font-size:0.9rem;font-weight:600;cursor:pointer;transition:all 0.2s;letter-spacing:0.05em}
+.btn-buy:hover:not(:disabled){background:var(--rose5)}
+.btn-buy:disabled,.add-btn:disabled{opacity:0.5;cursor:not-allowed}
+
+/* CART PANEL */
+.cart-panel{position:fixed;right:0;top:0;bottom:0;width:min(420px,100vw);background:#fff;z-index:300;box-shadow:-4px 0 20px rgba(0,0,0,0.1);display:flex;flex-direction:column}
+.cart-header{padding:1.5rem;border-bottom:1px solid var(--cream3);display:flex;align-items:center;justify-content:space-between}
+.cart-header h2{font-size:1.3rem;font-family:var(--font-h)}
+.cart-items{flex:1;overflow-y:auto;padding:1rem}
+.cart-item{display:flex;gap:1rem;padding:0.75rem 0;border-bottom:1px solid var(--cream3)}
+.cart-item-img{width:64px;height:64px;background:linear-gradient(135deg,var(--rose),var(--cream2));border-radius:var(--rs);display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0}
+.cart-item-info{flex:1}
+.cart-item-info h4{font-size:0.9rem;font-weight:500;margin-bottom:0.25rem}
+.cart-item-info p{font-size:0.75rem;color:var(--muted);margin-bottom:0.5rem}
+.qty-ctrl{display:flex;align-items:center;gap:0.5rem}
+.qty-btn{width:28px;height:28px;border:1px solid var(--cream3);background:#fff;border-radius:4px;cursor:pointer;font-weight:600;font-size:0.9rem;color:var(--mid);display:flex;align-items:center;justify-content:center}
+.qty-btn:hover{background:var(--cream2)}
+.qty-num{font-size:0.85rem;font-weight:600;min-width:24px;text-align:center}
+.cart-item-price{font-size:0.9rem;font-weight:600;flex-shrink:0}
+.remove-btn{background:none;border:none;color:var(--muted);cursor:pointer;font-size:0.85rem;margin-top:0.25rem}
+.remove-btn:hover{color:var(--rose4)}
+.cart-footer{padding:1.5rem;border-top:1px solid var(--cream3);background:#fff}
+.cart-summary div{display:flex;justify-content:space-between;font-size:0.9rem;color:var(--mid);margin-bottom:0.5rem}
+.cart-total{display:flex;justify-content:space-between;font-size:1.1rem;font-weight:600;color:var(--charcoal);margin:0.75rem 0 1rem;padding-top:0.75rem;border-top:1px solid var(--cream3)}
+.checkout-btn{width:100%;background:var(--charcoal);color:#fff;border:none;padding:1rem;border-radius:var(--rs);font-size:0.9rem;font-weight:600;cursor:pointer;letter-spacing:0.05em;transition:all 0.2s}
+.checkout-btn:hover{background:var(--mid)}
+.empty-cart{text-align:center;padding:3rem 1rem;color:var(--muted)}
+.empty-cart p{font-size:1rem;margin-bottom:0.5rem}
+
+/* CHECKOUT */
+.checkout-grid{display:grid;grid-template-columns:1fr 380px;gap:2rem}
+.form-group{margin-bottom:1.25rem}
+.form-label{display:block;font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--mid);margin-bottom:0.4rem}
+.form-input{width:100%;padding:0.7rem 1rem;border:1.5px solid var(--cream3);border-radius:var(--rs);font-size:0.9rem;font-family:var(--font-b);color:var(--charcoal);background:#fff;transition:border-color 0.2s;outline:none}
+.form-input:focus{border-color:var(--rose3)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.payment-option{display:flex;align-items:center;gap:0.75rem;padding:0.75rem 1rem;border:1.5px solid var(--cream3);border-radius:var(--rs);cursor:pointer;margin-bottom:0.75rem;transition:all 0.2s}
+.payment-option:hover{border-color:var(--rose3)}
+.payment-option.selected{border-color:var(--charcoal);background:var(--cream2)}
+.payment-option input{accent-color:var(--charcoal)}
+.payment-logo{width:40px;height:24px;background:var(--cream2);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:0.65rem;font-weight:700;color:var(--mid)}
+.order-summary-box{background:var(--cream2);border-radius:var(--r);padding:1.5rem;height:fit-content;position:sticky;top:80px}
+.order-summary-box h3{font-size:1.3rem;font-weight:400;margin-bottom:1.25rem;font-family:var(--font-h)}
+.summary-item{display:flex;align-items:center;gap:0.75rem;padding:0.75rem 0;border-bottom:1px solid var(--cream3)}
+.summary-thumb{width:48px;height:48px;background:linear-gradient(135deg,var(--rose),#fff);border-radius:var(--rs);display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+.summary-item-info{flex:1;font-size:0.85rem}
+.summary-item-price{font-weight:600;font-size:0.9rem}
+.summary-totals{margin-top:1rem}
+.summary-totals div{display:flex;justify-content:space-between;font-size:0.9rem;color:var(--mid);margin-bottom:0.5rem}
+.summary-grand{display:flex;justify-content:space-between;font-size:1.1rem;font-weight:700;color:var(--charcoal);margin-top:0.75rem;padding-top:0.75rem;border-top:1.5px solid var(--cream3)}
+.place-order-btn{width:100%;background:var(--rose4);color:#fff;border:none;padding:1rem;border-radius:var(--rs);font-size:0.95rem;font-weight:600;cursor:pointer;margin-top:1.25rem;letter-spacing:0.05em;transition:all 0.2s}
+.place-order-btn:hover{background:var(--rose5)}
+
+/* ADMIN */
+.admin-layout{display:grid;grid-template-columns:220px 1fr;min-height:calc(100vh - 64px);gap:0}
+.admin-sidebar{background:var(--charcoal);color:#fff;padding:1.5rem 1rem}
+.admin-sidebar h3{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:#888;margin-bottom:1rem;padding-left:0.5rem}
+.admin-nav-item{display:flex;align-items:center;gap:0.6rem;padding:0.6rem 0.75rem;border-radius:var(--rs);cursor:pointer;font-size:0.85rem;color:#aaa;transition:all 0.15s;margin-bottom:0.25rem}
+.admin-nav-item:hover{background:rgba(255,255,255,0.08);color:#fff}
+.admin-nav-item.active{background:var(--rose4);color:#fff}
+.admin-content{background:var(--cream);padding:2rem;overflow-y:auto}
+.admin-title{font-size:1.8rem;font-weight:300;margin-bottom:2rem;font-family:var(--font-h)}
+.stat-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;margin-bottom:2rem}
+.stat-card{background:#fff;padding:1.25rem;border-radius:var(--r);border:1px solid var(--cream3)}
+.stat-card .stat-val{font-size:1.8rem;font-weight:600;font-family:var(--font-h);color:var(--charcoal)}
+.stat-card .stat-label{font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-top:0.25rem}
+.stat-card .stat-change{font-size:0.75rem;margin-top:0.5rem}
+.stat-up{color:#4a9d6a}.stat-down{color:var(--rose4)}
+.data-table{width:100%;border-collapse:collapse;background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:0 2px 8px rgba(42,36,32,0.06)}
+.data-table th{background:var(--cream2);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);padding:0.75rem 1rem;text-align:left;font-weight:600}
+.data-table td{padding:0.75rem 1rem;font-size:0.85rem;border-bottom:1px solid var(--cream3);vertical-align:middle}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr:hover td{background:var(--cream)}
+.admin-btn{padding:0.4rem 0.9rem;border:none;border-radius:var(--rs);font-size:0.75rem;font-weight:600;cursor:pointer;transition:all 0.15s;letter-spacing:0.05em}
+.btn-edit{background:var(--cream2);color:var(--charcoal)}.btn-edit:hover{background:var(--cream3)}
+.btn-del{background:var(--rose2);color:var(--rose5)}.btn-del:hover{background:var(--rose3)}
+.btn-add{background:var(--charcoal);color:#fff}.btn-add:hover{background:var(--mid)}
+.stock-badge{padding:0.2rem 0.6rem;border-radius:4px;font-size:0.7rem;font-weight:700}
+.stock-in{background:#e6f7ee;color:#2d7a4f}
+.stock-low{background:#fff3e0;color:#c07000}
+.stock-out{background:var(--rose2);color:var(--rose5)}
+.order-status{padding:0.25rem 0.7rem;border-radius:4px;font-size:0.75rem;font-weight:600}
+.status-pending{background:#fff3e0;color:#b07000}
+.status-processing{background:#e6eeff;color:#2a4ab5}
+.status-shipped{background:#e6f7ee;color:#2d7a4f}
+.status-delivered{background:#f0f0f0;color:#555}
+.form-section{background:#fff;border-radius:var(--r);padding:1.5rem;border:1px solid var(--cream3);margin-bottom:1.5rem}
+.form-section h3{font-size:1.1rem;font-weight:500;margin-bottom:1.25rem;padding-bottom:0.75rem;border-bottom:1px solid var(--cream3)}
+
+/* FILTERS */
+.filters-bar{display:flex;gap:0.75rem;flex-wrap:wrap;margin-bottom:2rem;align-items:center}
+.filter-chip{padding:0.45rem 1rem;border:1.5px solid var(--cream3);border-radius:2rem;font-size:0.8rem;font-weight:500;cursor:pointer;background:#fff;color:var(--mid);transition:all 0.15s}
+.filter-chip:hover{border-color:var(--rose3)}
+.filter-chip.active{background:var(--charcoal);border-color:var(--charcoal);color:#fff}
+.search-input-full{padding:0.6rem 1.2rem;border:1.5px solid var(--cream3);border-radius:2rem;font-size:0.85rem;outline:none;color:var(--charcoal);width:220px;font-family:var(--font-b)}
+.search-input-full:focus{border-color:var(--rose3)}
+
+/* WISHLIST HEART */
+.wished{color:var(--rose4)}
+
+/* PAGE TABS */
+.page-container{display:none}
+.page-container.active{display:block}
+
+/* SUCCESS */
+.success-screen{text-align:center;padding:4rem 2rem}
+.success-icon{font-size:4rem;margin-bottom:1rem}
+.success-screen h2{font-size:2.5rem;font-weight:300;font-family:var(--font-h);margin-bottom:0.75rem}
+.success-screen p{color:var(--mid);margin-bottom:2rem;line-height:1.7}
+.order-id{background:var(--cream2);border-radius:var(--rs);padding:1rem 2rem;display:inline-block;font-size:1.1rem;font-weight:600;letter-spacing:0.1em;margin-bottom:2rem}
+
+/* INFO PAGES */
+.info-page{max-width:800px;margin:0 auto;padding:4rem 2rem}
+.info-page h1{font-size:2.5rem;font-weight:300;margin-bottom:2rem;font-family:var(--font-h)}
+.info-page h2{font-size:1.5rem;font-weight:400;margin-top:2rem;margin-bottom:0.75rem;font-family:var(--font-h)}
+.info-page p{font-size:0.95rem;color:var(--mid);line-height:1.8;margin-bottom:1rem}
+.info-page ul{padding-left:1.5rem;color:var(--mid);font-size:0.95rem;line-height:2}
+
+/* TOAST */
+.toast{position:fixed;bottom:2rem;right:2rem;background:var(--charcoal);color:#fff;padding:0.9rem 1.5rem;border-radius:var(--r);font-size:0.9rem;font-weight:500;z-index:500;transform:translateY(100px);opacity:0;transition:all 0.3s}
+.toast.show{transform:translateY(0);opacity:1}
+
+/* TRACKING */
+.tracking-steps{display:flex;flex-direction:column;gap:0}
+.tracking-step{display:flex;gap:1rem;padding-bottom:1.5rem;position:relative}
+.tracking-step::before{content:'';position:absolute;left:15px;top:32px;width:2px;height:calc(100% - 16px);background:var(--cream3)}
+.tracking-step:last-child::before{display:none}
+.step-dot{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.85rem;flex-shrink:0;z-index:1}
+.step-done{background:var(--charcoal);color:#fff}
+.step-current{background:var(--rose4);color:#fff}
+.step-pending{background:var(--cream3);color:var(--muted)}
+.step-info h4{font-size:0.9rem;font-weight:500;margin-bottom:0.25rem}
+.step-info p{font-size:0.8rem;color:var(--muted)}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+.contact-info-box{background:var(--rose);padding:2rem;border-radius:var(--r)}
+.contact-info-box h3{font-family:var(--font-h);font-size:1.5rem;font-weight:400;margin-bottom:1.25rem}
+.contact-detail{display:flex;gap:0.75rem;align-items:flex-start;margin-bottom:1rem}
+.contact-detail-icon{width:36px;height:36px;background:var(--rose2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem}
+.contact-detail-text h5{font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:0.25rem}
+.contact-detail-text p{font-size:0.9rem;color:var(--mid)}
+
+/* FAQ */
+.faq-item{border-bottom:1px solid var(--cream3);padding:1.25rem 0}
+.faq-q{font-size:1rem;font-weight:500;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:var(--font-h);font-size:1.1rem}
+.faq-a{font-size:0.9rem;color:var(--mid);line-height:1.8;margin-top:0.75rem;display:none}
+.faq-a.open{display:block}
+.faq-toggle{font-size:1.2rem;transition:transform 0.2s}
+
+/* PRICE RANGE */
+.price-range{display:flex;gap:0.5rem;align-items:center;font-size:0.85rem;color:var(--mid)}
+.price-range input{width:70px;padding:0.35rem 0.5rem;border:1.5px solid var(--cream3);border-radius:var(--rs);font-size:0.8rem;text-align:center}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.pdp-grid{grid-template-columns:1fr}
+.checkout-grid{grid-template-columns:1fr}
+.contact-grid{grid-template-columns:1fr}
+.admin-layout{grid-template-columns:1fr}
+.admin-sidebar{display:none}
+.nav-links{display:none}
+.form-row{grid-template-columns:1fr}
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.page-container.active{animation:fadeIn 0.3s ease}
+@keyframes slideIn{from{transform:translateX(100%)}to{transform:translateX(0)}}
+.cart-panel{animation:slideIn 0.3s ease}
+</style>
+</head>
+<body>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo" onclick="showPage('home')">Zara<span>Bloom</span></div>
+    <ul class="nav-links">
+      <li><a onclick="showPage('home')">Home</a></li>
+      <li><a onclick="showPage('shop')">Shop</a></li>
+      <li><a onclick="showPage('about')">About</a></li>
+      <li><a onclick="showPage('contact')">Contact</a></li>
+      <li><a onclick="showPage('admin')">Admin</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="search-bar">
+        <span>🔍</span>
+        <input type="text" placeholder="Search styles..." id="nav-search" onkeyup="handleNavSearch()">
+      </div>
+      <button class="icon-btn" onclick="showPage('wishlist')" title="Wishlist">♡ <span id="wish-count-badge" style="font-size:0.7rem;font-weight:700;color:var(--rose4)"></span></button>
+      <button class="icon-btn" onclick="toggleCart()" title="Cart">
+        🛍
+        <span class="cart-badge" id="cart-badge" style="display:none">0</span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGES WRAPPER -->
+<div id="page-home" class="page-container active">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-tag">✨ New Collection 2025</div>
+    <h1>Elegance in<br>Every <em>Thread</em></h1>
+    <p>Discover curated women's fashion — from flowing maxis to vibrant kurtis. Crafted for the modern Indian woman.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="showPage('shop')">Shop New Arrivals</button>
+      <button class="btn-outline" onclick="showPage('shop');setCategory('Sale Collection')">Explore Sale</button>
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <div class="section">
+    <h2 class="section-title">Shop by <em>Category</em></h2>
+    <p class="section-sub">Find your perfect style</p>
+    <div class="cats-grid" id="home-cats"></div>
+  </div>
+
+  <!-- NEW ARRIVALS -->
+  <div style="background:var(--cream2);padding:0.1rem 0">
+  <div class="section">
+    <h2 class="section-title">New <em>Arrivals</em></h2>
+    <p class="section-sub">Just dropped this week</p>
+    <div class="products-grid" id="new-arrivals-grid"></div>
+  </div>
+  </div>
+
+  <!-- BEST SELLERS -->
+  <div class="section">
+    <h2 class="section-title">Best <em>Sellers</em></h2>
+    <p class="section-sub">Loved by thousands of women</p>
+    <div class="products-grid" id="best-sellers-grid"></div>
+  </div>
+
+  <!-- BANNER -->
+  <div style="background:linear-gradient(135deg,var(--charcoal) 0%,var(--mid) 100%);padding:4rem 2rem;text-align:center;color:#fff">
+    <h2 style="font-family:var(--font-h);font-size:2.5rem;font-weight:300;margin-bottom:1rem">Up to <em style="color:var(--rose2)">50% Off</em> Sale Collection</h2>
+    <p style="color:#ccc;margin-bottom:2rem">Limited time — premium styles at unbeatable prices</p>
+    <button class="btn-outline" style="color:#fff;border-color:#fff" onclick="showPage('shop');setCategory('Sale Collection')">Shop Sale</button>
+  </div>
+
+  <!-- REVIEWS -->
+  <div class="section">
+    <h2 class="section-title">What Our <em>Customers</em> Say</h2>
+    <p class="section-sub">Real reviews from real women</p>
+    <div class="reviews-grid" id="reviews-grid"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>ZaraBloom</h3>
+        <p>Premium women's fashion boutique bringing you the latest in ethnic and contemporary styles. Made for the modern Indian woman.</p>
+        <div class="social-links">
+          <div class="social-btn" title="Instagram">📸</div>
+          <div class="social-btn" title="Facebook">📘</div>
+          <div class="social-btn" title="WhatsApp">💬</div>
+          <div class="social-btn" title="Pinterest">📌</div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a onclick="showPage('shop')">New Arrivals</a></li>
+          <li><a onclick="showPage('shop');setCategory('Maxi')">Maxis</a></li>
+          <li><a onclick="showPage('shop');setCategory('Kurtis')">Kurtis</a></li>
+          <li><a onclick="showPage('shop');setCategory('Sale Collection')">Sale</a></li>
+          <li><a onclick="showPage('wishlist')">Wishlist</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Help</h4>
+        <ul>
+          <li><a onclick="showPage('track')">Track Order</a></li>
+          <li><a onclick="showPage('faq')">FAQ</a></li>
+          <li><a onclick="showPage('contact')">Contact Us</a></li>
+          <li><a onclick="showPage('privacy')">Privacy Policy</a></li>
+          <li><a onclick="showPage('terms')">Terms & Conditions</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a>📧 hello@zarabloom.in</a></li>
+          <li><a>📞 +91 98765 43210</a></li>
+          <li><a>📍 MG Road, Bangalore 560001</a></li>
+          <li><a>⏰ Mon–Sat: 10am – 7pm</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 ZaraBloom. All rights reserved.</p>
+      <p>🔒 Secure Payments · GST Compliant · Made in India</p>
+    </div>
+  </footer>
+</div>
+
+<!-- SHOP PAGE -->
+<div id="page-shop" class="page-container">
+  <div class="section">
+    <h2 class="section-title">Our <em>Collection</em></h2>
+    <div class="filters-bar">
+      <input type="text" class="search-input-full" placeholder="🔍 Search products..." id="product-search" oninput="applyFilters()">
+      <div id="category-filters"></div>
+      <select class="filter-chip" style="border-radius:2rem;font-family:var(--font-b)" onchange="applyFilters()" id="size-filter">
+        <option value="">All Sizes</option>
+        <option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option>
+      </select>
+      <select class="filter-chip" style="border-radius:2rem;font-family:var(--font-b)" onchange="applyFilters()" id="avail-filter">
+        <option value="">All Stock</option>
+        <option value="in">In Stock</option>
+        <option value="out">Out of Stock</option>
+      </select>
+      <span class="price-range">
+        ₹<input type="number" id="price-min" placeholder="Min" oninput="applyFilters()" style="font-family:var(--font-b)">
+        – ₹<input type="number" id="price-max" placeholder="Max" oninput="applyFilters()" style="font-family:var(--font-b)">
+      </span>
+    </div>
+    <div class="products-grid" id="shop-grid"></div>
+    <div id="no-results" style="display:none;text-align:center;padding:3rem;color:var(--muted)">
+      <p style="font-size:2rem">🔍</p>
+      <p>No products found. Try adjusting your filters.</p>
+    </div>
+  </div>
+</div>
+
+<!-- WISHLIST PAGE -->
+<div id="page-wishlist" class="page-container">
+  <div class="section">
+    <h2 class="section-title">My <em>Wishlist</em></h2>
+    <div class="products-grid" id="wishlist-grid"></div>
+    <div id="wishlist-empty" style="display:none;text-align:center;padding:4rem;color:var(--muted)">
+      <p style="font-size:3rem">♡</p>
+      <p style="font-size:1.2rem;margin-bottom:1rem">Your wishlist is empty</p>
+      <button class="btn-primary" onclick="showPage('shop')">Discover Styles</button>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKOUT PAGE -->
+<div id="page-checkout" class="page-container">
+  <div class="section">
+    <h2 class="section-title">Secure <em>Checkout</em></h2>
+    <div class="checkout-grid">
+      <div>
+        <div class="form-section">
+          <h3>📋 Customer Details</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">First Name</label>
+              <input class="form-input" id="c-fname" placeholder="Priya" type="text">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Last Name</label>
+              <input class="form-input" id="c-lname" placeholder="Sharma" type="text">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input class="form-input" id="c-email" placeholder="priya@email.com" type="email">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Phone Number</label>
+            <input class="form-input" id="c-phone" placeholder="+91 98765 43210" type="tel">
+          </div>
+        </div>
+        <div class="form-section">
+          <h3>📍 Delivery Address</h3>
+          <div class="form-group">
+            <label class="form-label">Address Line 1</label>
+            <input class="form-input" id="c-addr1" placeholder="House no., Street name" type="text">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Address Line 2</label>
+            <input class="form-input" id="c-addr2" placeholder="Apartment, Area (optional)" type="text">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">City</label>
+              <input class="form-input" id="c-city" placeholder="Bangalore" type="text">
+            </div>
+            <div class="form-group">
+              <label class="form-label">PIN Code</label>
+              <input class="form-input" id="c-pin" placeholder="560001" type="text">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">State</label>
+            <select class="form-input" id="c-state">
+              <option>Karnataka</option><option>Tamil Nadu</option><option>Maharashtra</option>
+              <option>Delhi</option><option>Gujarat</option><option>Rajasthan</option>
+              <option>West Bengal</option><option>Telangana</option><option>Kerala</option>
+              <option>Uttar Pradesh</option><option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-section">
+          <h3>💳 Payment Method</h3>
+          <p style="font-size:0.8rem;color:var(--muted);margin-bottom:1rem">🔒 All payments are 100% secure and encrypted</p>
+          <div id="payment-options"></div>
+        </div>
+      </div>
+      <div>
+        <div class="order-summary-box">
+          <h3>Order Summary</h3>
+          <div id="checkout-items"></div>
+          <div class="summary-totals">
+            <div><span>Subtotal</span><span id="co-subtotal">₹0</span></div>
+            <div><span>Shipping</span><span id="co-shipping">FREE</span></div>
+            <div><span>GST (5%)</span><span id="co-gst">₹0</span></div>
+          </div>
+          <div class="summary-grand"><span>Total</span><span id="co-total">₹0</span></div>
+          <button class="place-order-btn" onclick="placeOrder()">🔒 Place Order</button>
+          <p style="font-size:0.75rem;color:var(--muted);text-align:center;margin-top:0.75rem">By placing your order you agree to our Terms & Conditions</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SUCCESS PAGE -->
+<div id="page-success" class="page-container">
+  <div class="section">
+    <div class="success-screen">
+      <div class="success-icon">🎉</div>
+      <h2>Order Placed Successfully!</h2>
+      <p>Thank you for shopping with ZaraBloom. Your order is confirmed and will be shipped within 2-3 business days.</p>
+      <div class="order-id" id="order-id-display">#ZB-000000</div>
+      <p style="color:var(--muted);margin-bottom:2rem;font-size:0.9rem">A confirmation has been sent to your email address.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <button class="btn-primary" onclick="showPage('track')">Track My Order</button>
+        <button class="btn-outline" onclick="showPage('shop')">Continue Shopping</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ORDER TRACKING -->
+<div id="page-track" class="page-container">
+  <div class="info-page">
+    <h1>Order <em>Tracking</em></h1>
+    <div style="background:#fff;border-radius:var(--r);padding:1.5rem;border:1px solid var(--cream3);margin-bottom:2rem">
+      <label class="form-label">Enter Order ID</label>
+      <div style="display:flex;gap:0.75rem;margin-top:0.5rem">
+        <input class="form-input" id="track-input" placeholder="e.g. ZB-123456" style="max-width:300px">
+        <button class="btn-primary" onclick="trackOrder()" style="padding:0.7rem 1.5rem;font-size:0.85rem">Track</button>
+      </div>
+    </div>
+    <div id="tracking-result" style="display:none">
+      <div style="background:#fff;border-radius:var(--r);padding:1.5rem;border:1px solid var(--cream3)">
+        <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem">
+          <div>
+            <h3 style="font-family:var(--font-h);font-size:1.3rem;font-weight:400">Order <span id="track-order-id">#ZB-123456</span></h3>
+            <p style="font-size:0.85rem;color:var(--muted);margin-top:0.25rem">Estimated delivery: <strong>3–5 business days</strong></p>
+          </div>
+          <span class="order-status status-shipped">📦 Shipped</span>
+        </div>
+        <div class="tracking-steps">
+          <div class="tracking-step">
+            <div class="step-dot step-done">✓</div>
+            <div class="step-info">
+              <h4>Order Confirmed</h4>
+              <p>Your order has been received and payment verified.</p>
+            </div>
+          </div>
+          <div class="tracking-step">
+            <div class="step-dot step-done">✓</div>
+            <div class="step-info">
+              <h4>Processing</h4>
+              <p>Your items are being packed with care.</p>
+            </div>
+          </div>
+          <div class="tracking-step">
+            <div class="step-dot step-current">🚚</div>
+            <div class="step-info">
+              <h4>Shipped</h4>
+              <p>Out for delivery via BlueDart. Tracking: BD9876543210</p>
+            </div>
+          </div>
+          <div class="tracking-step">
+            <div class="step-dot step-pending">◯</div>
+            <div class="step-info">
+              <h4>Out for Delivery</h4>
+              <p>Expected within 1–2 days.</p>
+            </div>
+          </div>
+          <div class="tracking-step">
+            <div class="step-dot step-pending">◯</div>
+            <div class="step-info">
+              <h4>Delivered</h4>
+              <p>Package delivered to your doorstep.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT PAGE -->
+<div id="page-about" class="page-container">
+  <div style="background:linear-gradient(135deg,var(--rose),var(--cream2));padding:5rem 2rem;text-align:center">
+    <h1 style="font-family:var(--font-h);font-size:3rem;font-weight:300;margin-bottom:1rem">Our <em style="color:var(--rose4)">Story</em></h1>
+    <p style="max-width:600px;margin:0 auto;color:var(--mid);font-size:1rem;line-height:1.8">Born from a love of beautiful fabrics and timeless designs, ZaraBloom celebrates the modern Indian woman.</p>
+  </div>
+  <div class="info-page">
+    <h2>Who We Are</h2>
+    <p>ZaraBloom was founded in 2019 with a singular vision: to make premium women's fashion accessible to every Indian woman. From the bustling streets of Bangalore to doorsteps across India, we've grown from a small boutique into a beloved online destination.</p>
+    <h2>Our Philosophy</h2>
+    <p>We believe fashion is deeply personal — an expression of who you are. Every piece in our collection is handpicked for quality, comfort, and style. We work directly with artisans and manufacturers across India to bring you exclusive designs that you won't find anywhere else.</p>
+    <h2>Our Promise</h2>
+    <ul>
+      <li>Genuine quality — only the finest fabrics</li>
+      <li>Fair pricing — direct from makers to you</li>
+      <li>Inclusive sizing — S through XXL</li>
+      <li>Hassle-free returns — 15-day policy</li>
+      <li>Secure payments — 100% encrypted</li>
+    </ul>
+    <h2>Sustainability</h2>
+    <p>We're committed to responsible fashion. Our packaging is 90% recyclable, and we partner with certified ethical manufacturers. Fashion that looks good and does good.</p>
+  </div>
+</div>
+
+<!-- CONTACT PAGE -->
+<div id="page-contact" class="page-container">
+  <div class="section">
+    <h2 class="section-title">Get in <em>Touch</em></h2>
+    <p class="section-sub">We'd love to hear from you</p>
+    <div class="contact-grid">
+      <div class="contact-info-box">
+        <h3>Contact Information</h3>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📧</div>
+          <div class="contact-detail-text">
+            <h5>Email</h5>
+            <p>hello@zarabloom.in</p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📞</div>
+          <div class="contact-detail-text">
+            <h5>Phone / WhatsApp</h5>
+            <p>+91 98765 43210</p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">📍</div>
+          <div class="contact-detail-text">
+            <h5>Address</h5>
+            <p>12A, MG Road, Bangalore – 560001, Karnataka, India</p>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon">⏰</div>
+          <div class="contact-detail-text">
+            <h5>Working Hours</h5>
+            <p>Monday – Saturday: 10am – 7pm IST</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="form-section">
+          <h3>Send a Message</h3>
+          <div class="form-group">
+            <label class="form-label">Full Name</label>
+            <input class="form-input" placeholder="Your name" type="text">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input class="form-input" placeholder="your@email.com" type="email">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Subject</label>
+            <select class="form-input">
+              <option>Order Query</option>
+              <option>Return / Exchange</option>
+              <option>Product Query</option>
+              <option>Payment Issue</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea class="form-input" rows="4" placeholder="Tell us how we can help..."></textarea>
+          </div>
+          <button class="btn-primary" style="width:100%" onclick="showToast('Message sent! We\'ll reply within 24 hours.')">Send Message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ PAGE -->
+<div id="page-faq" class="page-container">
+  <div class="info-page">
+    <h1>Frequently Asked <em>Questions</em></h1>
+    <div id="faq-list"></div>
+  </div>
+</div>
+
+<!-- PRIVACY PAGE -->
+<div id="page-privacy" class="page-container">
+  <div class="info-page">
+    <h1>Privacy <em>Policy</em></h1>
+    <p>Last updated: January 1, 2025</p>
+    <h2>Information We Collect</h2>
+    <p>We collect information you provide directly — name, email, address, payment details — only for fulfilling your orders and improving your experience.</p>
+    <h2>How We Use Your Information</h2>
+    <p>Your data is used to process orders, send shipping updates, and provide customer support. We never sell your personal information to third parties.</p>
+    <h2>Data Security</h2>
+    <p>All payment data is processed through PCI-DSS compliant gateways. We use SSL encryption across all our pages.</p>
+    <h2>Cookies</h2>
+    <p>We use essential cookies for cart functionality and analytics cookies to improve our store. You may disable non-essential cookies in your browser settings.</p>
+    <h2>Your Rights</h2>
+    <p>You have the right to access, correct, or delete your personal data. Contact us at privacy@zarabloom.in for any requests.</p>
+    <h2>Contact</h2>
+    <p>For privacy concerns: privacy@zarabloom.in or call +91 98765 43210.</p>
+  </div>
+</div>
+
+<!-- TERMS PAGE -->
+<div id="page-terms" class="page-container">
+  <div class="info-page">
+    <h1>Terms & <em>Conditions</em></h1>
+    <p>Last updated: January 1, 2025</p>
+    <h2>Acceptance of Terms</h2>
+    <p>By using ZaraBloom, you agree to these terms. If you disagree, please do not use our services.</p>
+    <h2>Product Descriptions</h2>
+    <p>We strive for accuracy but colors may slightly vary on different screens. Sizes follow our published size guide.</p>
+    <h2>Payments</h2>
+    <p>We accept UPI, Google Pay, PhonePe, Paytm, Credit/Debit cards, and Net Banking. All transactions are in Indian Rupees (INR). We do not offer Cash on Delivery.</p>
+    <h2>Returns & Exchanges</h2>
+    <p>Items may be returned within 15 days of delivery if unused and in original packaging. Sale items are non-returnable. Contact support@zarabloom.in to initiate a return.</p>
+    <h2>Shipping</h2>
+    <p>Orders above ₹999 get free shipping. Standard delivery takes 3–7 business days. Express delivery (1–3 days) is available at checkout for ₹99.</p>
+    <h2>Governing Law</h2>
+    <p>These terms are governed by the laws of Karnataka, India. Disputes will be resolved in Bangalore courts.</p>
+  </div>
+</div>
+
+<!-- ADMIN PAGE -->
+<div id="page-admin" class="page-container">
+  <div class="admin-layout">
+    <div class="admin-sidebar">
+      <h3>Dashboard</h3>
+      <div class="admin-nav-item active" onclick="showAdminTab('overview',this)">📊 Overview</div>
+      <div class="admin-nav-item" onclick="showAdminTab('products',this)">👗 Products</div>
+      <div class="admin-nav-item" onclick="showAdminTab('add-product',this)">➕ Add Product</div>
+      <div class="admin-nav-item" onclick="showAdminTab('orders',this)">📦 Orders</div>
+      <div class="admin-nav-item" onclick="showAdminTab('categories',this)">🗂 Categories</div>
+      <div class="admin-nav-item" onclick="showAdminTab('analytics',this)">📈 Analytics</div>
+      <div style="margin-top:2rem">
+        <div class="admin-nav-item" onclick="showPage('home')">← Back to Store</div>
+      </div>
+    </div>
+    <div class="admin-content">
+      <!-- OVERVIEW -->
+      <div id="admin-overview">
+        <h2 class="admin-title">Dashboard Overview</h2>
+        <div class="stat-cards">
+          <div class="stat-card">
+            <div class="stat-val">₹2,34,560</div>
+            <div class="stat-label">Total Revenue</div>
+            <div class="stat-change stat-up">↑ 18.4% this month</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val">847</div>
+            <div class="stat-label">Total Orders</div>
+            <div class="stat-change stat-up">↑ 12 today</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val" id="admin-product-count">0</div>
+            <div class="stat-label">Products Listed</div>
+            <div class="stat-change">Active</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-val">4.8 ⭐</div>
+            <div class="stat-label">Avg Rating</div>
+            <div class="stat-change stat-up">↑ 0.2 points</div>
+          </div>
+        </div>
+        <div style="background:#fff;border-radius:var(--r);padding:1.5rem;border:1px solid var(--cream3)">
+          <h3 style="font-family:var(--font-h);font-size:1.3rem;font-weight:400;margin-bottom:1rem">Recent Orders</h3>
+          <table class="data-table" style="width:100%">
+            <thead><tr><th>Order ID</th><th>Customer</th><th>Items</th><th>Total</th><th>Status</th></tr></thead>
+            <tbody id="recent-orders-table"></tbody>
+          </table>
+        </div>
+      </div>
+      <!-- PRODUCTS -->
+      <div id="admin-products" style="display:none">
+        <h2 class="admin-title">Manage Products</h2>
+        <table class="data-table">
+          <thead><tr><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Actions</th></tr></thead>
+          <tbody id="admin-products-table"></tbody>
+        </table>
+      </div>
+      <!-- ADD PRODUCT -->
+      <div id="admin-add-product" style="display:none">
+        <h2 class="admin-title" id="add-product-title">Add New Product</h2>
+        <div class="form-section">
+          <h3>Product Details</h3>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Product Name</label>
+              <input class="form-input" id="ap-name" placeholder="e.g. Floral Maxi Dress" type="text">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Category</label>
+              <select class="form-input" id="ap-cat">
+                <option>Maxi</option><option>Feeding Maxi</option><option>3 PC Set</option>
+                <option>Kurtis</option><option>Night Wear</option><option>New Arrivals</option><option>Sale Collection</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Description</label>
+            <textarea class="form-input" id="ap-desc" rows="3" placeholder="Product description..."></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Original Price (₹)</label>
+              <input class="form-input" id="ap-price" type="number" placeholder="1499">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Sale Price (₹) — optional</label>
+              <input class="form-input" id="ap-sale" type="number" placeholder="999">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Emoji (Product Display)</label>
+            <input class="form-input" id="ap-emoji" placeholder="👗" style="font-size:1.5rem;max-width:80px">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tags</label>
+            <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+              <label style="display:flex;align-items:center;gap:0.3rem;font-size:0.85rem"><input type="checkbox" id="tag-new"> New Arrival</label>
+              <label style="display:flex;align-items:center;gap:0.3rem;font-size:0.85rem"><input type="checkbox" id="tag-best"> Best Seller</label>
+              <label style="display:flex;align-items:center;gap:0.3rem;font-size:0.85rem"><input type="checkbox" id="tag-sale"> On Sale</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-section">
+          <h3>Stock by Size</h3>
+          <div id="size-stock-inputs"></div>
+        </div>
+        <button class="btn-primary" onclick="saveProduct()" style="padding:0.9rem 2rem">💾 Save Product</button>
+        <button class="btn-outline" onclick="cancelEdit()" style="padding:0.9rem 2rem;margin-left:0.75rem">Cancel</button>
+      </div>
+      <!-- ORDERS -->
+      <div id="admin-orders" style="display:none">
+        <h2 class="admin-title">All Orders</h2>
+        <table class="data-table">
+          <thead><tr><th>Order ID</th><th>Customer</th><th>Date</th><th>Total</th><th>Payment</th><th>Status</th><th>Action</th></tr></thead>
+          <tbody id="all-orders-table"></tbody>
+        </table>
+      </div>
+      <!-- CATEGORIES -->
+      <div id="admin-categories" style="display:none">
+        <h2 class="admin-title">Manage Categories</h2>
+        <div id="categories-list"></div>
+      </div>
+      <!-- ANALYTICS -->
+      <div id="admin-analytics" style="display:none">
+        <h2 class="admin-title">Sales Analytics</h2>
+        <div class="stat-cards" style="margin-bottom:1.5rem">
+          <div class="stat-card"><div class="stat-val">₹78,450</div><div class="stat-label">This Month</div></div>
+          <div class="stat-card"><div class="stat-val">312</div><div class="stat-label">Orders This Month</div></div>
+          <div class="stat-card"><div class="stat-val">₹251</div><div class="stat-label">Avg Order Value</div></div>
+          <div class="stat-card"><div class="stat-val">68%</div><div class="stat-label">Repeat Customers</div></div>
+        </div>
+        <div style="background:#fff;border-radius:var(--r);padding:1.5rem;border:1px solid var(--cream3);margin-bottom:1.5rem">
+          <h3 style="font-family:var(--font-h);font-size:1.2rem;margin-bottom:1rem">Revenue by Category</h3>
+          <div id="cat-analytics"></div>
+        </div>
+        <div style="background:#fff;border-radius:var(--r);padding:1.5rem;border:1px solid var(--cream3)">
+          <h3 style="font-family:var(--font-h);font-size:1.2rem;margin-bottom:1rem">Top Selling Products</h3>
+          <table class="data-table" style="width:100%">
+            <thead><tr><th>Product</th><th>Category</th><th>Units Sold</th><th>Revenue</th></tr></thead>
+            <tbody id="top-products-table"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CART PANEL -->
+<div id="cart-panel" class="cart-panel" style="display:none">
+  <div class="cart-header">
+    <h2>🛍 Shopping Bag</h2>
+    <button class="close-btn" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items-list"></div>
+  <div class="cart-footer">
+    <div class="cart-summary">
+      <div><span>Subtotal</span><span id="cart-subtotal">₹0</span></div>
+      <div><span>Shipping</span><span>FREE on orders above ₹999</span></div>
+    </div>
+    <div class="cart-total"><span>Total</span><span id="cart-total-display">₹0</span></div>
+    <button class="checkout-btn" onclick="goToCheckout()">Proceed to Checkout →</button>
+  </div>
+</div>
+
+<!-- PRODUCT DETAIL MODAL -->
+<div class="overlay" id="pdp-overlay" style="display:none" onclick="closePDP(event)">
+  <div class="modal" style="max-width:700px">
+    <div class="modal-header">
+      <h2 id="pdp-title">Product Name</h2>
+      <button class="close-btn" onclick="closePDPDirect()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="pdp-grid">
+        <div class="pdp-img" id="pdp-img">👗</div>
+        <div class="pdp-info">
+          <p style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:0.5rem" id="pdp-cat">Category</p>
+          <div class="pdp-prices">
+            <span class="pdp-price-main" id="pdp-price">₹999</span>
+            <span class="pdp-price-old" id="pdp-old-price" style="display:none"></span>
+            <span class="pdp-discount" id="pdp-discount" style="display:none"></span>
+          </div>
+          <p style="font-size:0.9rem;color:var(--mid);line-height:1.7;margin-bottom:1rem" id="pdp-desc">Description</p>
+          <div class="size-label">Select Size</div>
+          <div class="size-select" id="pdp-sizes"></div>
+          <div class="pdp-btns">
+            <button class="btn-buy" id="pdp-buy" onclick="buyNow()">⚡ Buy Now</button>
+            <button class="add-btn" id="pdp-add" onclick="addFromPDP()">Add to Cart</button>
+          </div>
+          <p style="font-size:0.75rem;color:var(--muted);margin-top:0.75rem;text-align:center">🔒 Secure · Free shipping above ₹999 · Easy returns</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ====== DATA ======
+const CATEGORIES = ['All','Maxi','Feeding Maxi','3 PC Set','Kurtis','Night Wear','New Arrivals','Sale Collection'];
+const CAT_ICONS = {'All':'🛍','Maxi':'👗','Feeding Maxi':'🤱','3 PC Set':'✨','Kurtis':'👘','Night Wear':'🌙','New Arrivals':'⭐','Sale Collection':'🏷'};
+
+let products = [
+  {id:1,name:'Midnight Rose Maxi',cat:'Maxi',desc:'Elegant flowing maxi dress with delicate floral print. Perfect for evenings and special occasions.',emoji:'👗',price:1899,salePrice:1299,isNew:true,isBest:false,isSale:true,stock:{S:5,M:8,L:3,XL:0,XXL:2}},
+  {id:2,name:'Garden Bliss Maxi',cat:'Maxi',desc:'Lightweight cotton maxi with garden-fresh print. Comfortable all-day wear.',emoji:'🌸',price:1499,salePrice:null,isNew:false,isBest:true,isSale:false,stock:{S:10,M:12,L:8,XL:5,XXL:3}},
+  {id:3,name:'Nursing Cloud Maxi',cat:'Feeding Maxi',desc:'Specially designed feeding maxi with hidden nursing access. Stylish yet functional.',emoji:'🤱',price:2199,salePrice:1799,isNew:true,isBest:true,isSale:false,stock:{S:6,M:9,L:7,XL:4,XXL:0}},
+  {id:4,name:'Blossom Nursing Set',cat:'Feeding Maxi',desc:'Soft organic cotton nursing dress with discreet side openings and matching shrug.',emoji:'💐',price:2499,salePrice:1999,isNew:false,isBest:false,isSale:true,stock:{S:3,M:5,L:2,XL:1,XXL:0}},
+  {id:5,name:'Ethnic Trio Set',cat:'3 PC Set',desc:'Premium 3-piece set: kurti, palazzo & dupatta. Ready for any festive occasion.',emoji:'✨',price:3499,salePrice:2799,isNew:true,isBest:true,isSale:false,stock:{S:4,M:6,L:5,XL:3,XXL:1}},
+  {id:6,name:'Royal Embroidered Set',cat:'3 PC Set',desc:'Luxurious embroidered 3-piece with silk-blend fabric and golden thread work.',emoji:'👑',price:4999,salePrice:3499,isNew:false,isBest:false,isSale:true,stock:{S:2,M:3,L:2,XL:0,XXL:0}},
+  {id:7,name:'Paisley Print Kurti',cat:'Kurtis',desc:'Classic paisley print kurti in breathable rayon. Pair with leggings or palazzos.',emoji:'🦚',price:899,salePrice:699,isNew:false,isBest:true,isSale:false,stock:{S:15,M:20,L:18,XL:10,XXL:6}},
+  {id:8,name:'Chikankari Dream Kurti',cat:'Kurtis',desc:'Hand-embroidered Lucknawi chikankari kurti. An artisanal masterpiece.',emoji:'🌿',price:1299,salePrice:null,isNew:true,isBest:false,isSale:false,stock:{S:8,M:10,L:7,XL:4,XXL:2}},
+  {id:9,name:'Starlight Night Set',cat:'Night Wear',desc:'Ultra-soft modal night suit with star print. Sleep in style and comfort.',emoji:'🌙',price:1199,salePrice:899,isNew:false,isBest:true,isSale:true,stock:{S:12,M:15,L:10,XL:8,XXL:4}},
+  {id:10,name:'Rose Garden PJ Set',cat:'Night Wear',desc:'Floral printed satin finish pyjama set with matching sleep mask.',emoji:'🌹',price:999,salePrice:null,isNew:true,isBest:false,isSale:false,stock:{S:0,M:0,L:0,XL:0,XXL:0}},
+  {id:11,name:'Sunrise Linen Kurti',cat:'New Arrivals',desc:'Fresh-off-the-loom linen kurti in sunrise hues. Spring summer essential.',emoji:'☀️',price:1099,salePrice:null,isNew:true,isBest:false,isSale:false,stock:{S:7,M:9,L:6,XL:3,XXL:1}},
+  {id:12,name:'Festive Anarkali Maxi',cat:'Sale Collection',desc:'Gorgeous Anarkali-style maxi with bell sleeves. Originally ₹4999.',emoji:'🎊',price:4999,salePrice:2499,isNew:false,isBest:false,isSale:true,stock:{S:3,M:4,L:2,XL:1,XXL:0}},
+];
+
+let cart = [];
+let wishlist = new Set();
+let currentPDP = null;
+let selectedSize = null;
+let currentPage = 'home';
+let activeCategory = 'All';
+let orders = [
+  {id:'ZB-100012',customer:'Priya Sharma',date:'2025-01-10',total:'₹2,799',payment:'UPI',status:'shipped',items:['Ethnic Trio Set']},
+  {id:'ZB-100011',customer:'Anita Rao',date:'2025-01-09',total:'₹1,299',payment:'GPay',status:'delivered',items:['Midnight Rose Maxi']},
+  {id:'ZB-100010',customer:'Meera Joshi',date:'2025-01-09',total:'₹899',payment:'Card',status:'processing',items:['Paisley Print Kurti','Starlight Night Set']},
+  {id:'ZB-100009',customer:'Divya Nair',date:'2025-01-08',total:'₹3,499',payment:'PhonePe',status:'pending',items:['Royal Embroidered Set']},
+];
+
+// ====== PAGE NAVIGATION ======
+function showPage(page){
+  document.querySelectorAll('.page-container').forEach(p=>p.classList.remove('active'));
+  const el = document.getElementById('page-'+page);
+  if(el){el.classList.add('active');currentPage=page;}
+  window.scrollTo(0,0);
+  if(page==='shop')renderShop();
+  if(page==='wishlist')renderWishlist();
+  if(page==='checkout')renderCheckout();
+  if(page==='admin')renderAdmin();
+  if(page==='faq')renderFAQ();
+}
+
+// ====== RENDER HOME ======
+function renderHome(){
+  // Categories
+  const catsEl = document.getElementById('home-cats');
+  if(catsEl){
+    catsEl.innerHTML = CATEGORIES.filter(c=>c!=='All').map(c=>`
+      <div class="cat-card" onclick="showPage('shop');setCategory('${c}')">
+        <div class="cat-icon">${CAT_ICONS[c]||'👗'}</div>
+        <div class="cat-name">${c}</div>
+        <div class="cat-count">${products.filter(p=>p.cat===c).length} styles</div>
+      </div>`).join('');
+  }
+  // New Arrivals
+  const naEl = document.getElementById('new-arrivals-grid');
+  if(naEl) naEl.innerHTML = products.filter(p=>p.isNew).slice(0,4).map(renderProductCard).join('');
+  // Best Sellers
+  const bsEl = document.getElementById('best-sellers-grid');
+  if(bsEl) bsEl.innerHTML = products.filter(p=>p.isBest).slice(0,4).map(renderProductCard).join('');
+  // Reviews
+  const reviews = [
+    {name:'Priya S.',city:'Mumbai',rating:5,text:'Absolutely love my Ethnic Trio Set! The fabric quality is exceptional and delivery was super fast. ZaraBloom is my go-to for festive outfits now.',initials:'PS'},
+    {name:'Anita R.',city:'Bangalore',rating:5,text:'The Chikankari Kurti is exactly what I was looking for. Authentic embroidery, beautiful packaging. Will definitely order again!',initials:'AR'},
+    {name:'Meera J.',city:'Delhi',rating:4,text:'Great selection of nursing maxis. As a new mom, I was struggling to find stylish yet functional options. ZaraBloom saved the day!',initials:'MJ'},
+    {name:'Divya K.',city:'Chennai',rating:5,text:'Sale collection has amazing deals. Got a gorgeous Anarkali for half the price. Quality is top-notch. Highly recommend!',initials:'DK'},
+    {name:'Sowmya P.',city:'Hyderabad',rating:5,text:'Night wear set is so comfortable and pretty! The satin finish is lovely. Already ordered two more pairs for my friends.',initials:'SP'},
+    {name:'Lakshmi T.',city:'Kochi',rating:4,text:'Good variety and sizing. The XL fits perfectly. Customer support was very helpful when I had a size query.',initials:'LT'},
+  ];
+  const revEl = document.getElementById('reviews-grid');
+  if(revEl) revEl.innerHTML = reviews.map(r=>`
+    <div class="review-card">
+      <div class="review-stars">${'★'.repeat(r.rating)}${'☆'.repeat(5-r.rating)}</div>
+      <p class="review-text">"${r.text}"</p>
+      <div class="reviewer">
+        <div class="reviewer-avatar">${r.initials}</div>
+        <div class="reviewer-info">
+          <strong style="font-size:0.9rem">${r.name}</strong><br>
+          <small>${r.city}</small>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+// ====== PRODUCT CARD ======
+function renderProductCard(p){
+  const inStock = Object.values(p.stock).some(v=>v>0);
+  const salePercent = p.salePrice ? Math.round((1-p.salePrice/p.price)*100) : 0;
+  const displayPrice = p.salePrice||p.price;
+  const availSizes = Object.entries(p.stock).filter(([s,q])=>q>0).map(([s])=>s);
+  const allSizes = ['S','M','L','XL','XXL'];
+  return `<div class="product-card">
+    <div class="product-img" onclick="openPDP(${p.id})">
+      <div class="product-emoji">${p.emoji}</div>
+      <div class="product-badges">
+        ${p.isNew?'<span class="badge badge-new">New</span>':''}
+        ${p.isSale&&p.salePrice?'<span class="badge badge-sale">Sale</span>':''}
+        ${!inStock?'<span class="badge badge-sold">Out of Stock</span>':''}
+      </div>
+      <button class="wishlist-btn" onclick="event.stopPropagation();toggleWishlist(${p.id})" title="Wishlist">
+        <span id="wish-${p.id}">${wishlist.has(p.id)?'❤️':'🤍'}</span>
+      </button>
+    </div>
+    <div class="product-info">
+      <div class="product-cat">${p.cat}</div>
+      <div class="product-name">${p.name}</div>
+      <div class="product-price">
+        <span class="price-current">₹${displayPrice.toLocaleString()}</span>
+        ${p.salePrice?`<span class="price-old">₹${p.price.toLocaleString()}</span><span class="price-discount">-${salePercent}%</span>`:''}
+      </div>
+      <div class="sizes-row">
+        ${allSizes.map(s=>`<span class="size-chip${!availSizes.includes(s)?' out':''}">${s}</span>`).join('')}
+      </div>
+      <button class="add-btn" onclick="quickAdd(${p.id})" ${!inStock?'disabled':''}>
+        ${inStock?'+ Add to Bag':'Out of Stock'}
+      </button>
+    </div>
+  </div>`;
+}
+
+// ====== SHOP PAGE ======
+let currentCatFilter = 'All';
+function setCategory(cat){currentCatFilter=cat;applyFilters();}
+function renderShop(){
+  const catFiltersEl = document.getElementById('category-filters');
+  if(catFiltersEl) catFiltersEl.innerHTML = CATEGORIES.map(c=>`
+    <span class="filter-chip${currentCatFilter===c?' active':''}" onclick="setCategory('${c}');updateCatChips()">${CAT_ICONS[c]||''} ${c}</span>`).join('');
+  applyFilters();
+}
+function updateCatChips(){
+  document.querySelectorAll('#category-filters .filter-chip').forEach((el,i)=>{
+    el.classList.toggle('active', CATEGORIES[i]===currentCatFilter);
+  });
+}
+function applyFilters(){
+  const search = (document.getElementById('product-search')?.value||'').toLowerCase();
+  const sizeF = document.getElementById('size-filter')?.value||'';
+  const availF = document.getElementById('avail-filter')?.value||'';
+  const minP = parseFloat(document.getElementById('price-min')?.value)||0;
+  const maxP = parseFloat(document.getElementById('price-max')?.value)||Infinity;
+  let filtered = products.filter(p=>{
+    if(currentCatFilter!=='All'&&p.cat!==currentCatFilter)return false;
+    if(search&&!p.name.toLowerCase().includes(search)&&!p.cat.toLowerCase().includes(search))return false;
+    if(sizeF&&p.stock[sizeF]===0)return false;
+    const inStock = Object.values(p.stock).some(v=>v>0);
+    if(availF==='in'&&!inStock)return false;
+    if(availF==='out'&&inStock)return false;
+    const price = p.salePrice||p.price;
+    if(price<minP||price>maxP)return false;
+    return true;
+  });
+  const grid = document.getElementById('shop-grid');
+  const noRes = document.getElementById('no-results');
+  if(grid) grid.innerHTML = filtered.map(renderProductCard).join('');
+  if(noRes) noRes.style.display = filtered.length?'none':'block';
+}
+function handleNavSearch(){
+  const v = document.getElementById('nav-search').value;
+  if(v.length>0){showPage('shop');document.getElementById('product-search').value=v;applyFilters();}
+}
+
+// ====== WISHLIST ======
+function toggleWishlist(id){
+  if(wishlist.has(id)){wishlist.delete(id);showToast('Removed from wishlist');}
+  else{wishlist.add(id);showToast('💗 Added to wishlist');}
+  document.querySelectorAll(`#wish-${id}`).forEach(el=>el.textContent=wishlist.has(id)?'❤️':'🤍');
+  const badge = document.getElementById('wish-count-badge');
+  if(badge) badge.textContent = wishlist.size>0?`(${wishlist.size})`:'';
+}
+function renderWishlist(){
+  const grid = document.getElementById('wishlist-grid');
+  const empty = document.getElementById('wishlist-empty');
+  const wishedProducts = products.filter(p=>wishlist.has(p.id));
+  if(grid) grid.innerHTML = wishedProducts.map(renderProductCard).join('');
+  if(empty) empty.style.display = wishedProducts.length?'none':'block';
+  if(grid) grid.style.display = wishedProducts.length?'grid':'none';
+}
+
+// ====== PDP MODAL ======
+function openPDP(id){
+  const p = products.find(x=>x.id===id);
+  if(!p) return;
+  currentPDP = p; selectedSize = null;
+  document.getElementById('pdp-title').textContent = p.name;
+  document.getElementById('pdp-img').textContent = p.emoji;
+  document.getElementById('pdp-cat').textContent = p.cat;
+  const dp = p.salePrice||p.price;
+  document.getElementById('pdp-price').textContent = '₹'+dp.toLocaleString();
+  const oldEl = document.getElementById('pdp-old-price');
+  const discEl = document.getElementById('pdp-discount');
+  if(p.salePrice){oldEl.textContent='₹'+p.price.toLocaleString();oldEl.style.display='inline';
+    discEl.textContent=`-${Math.round((1-p.salePrice/p.price)*100)}%`;discEl.style.display='inline';}
+  else{oldEl.style.display='none';discEl.style.display='none';}
+  document.getElementById('pdp-desc').textContent = p.desc;
+  const sizesEl = document.getElementById('pdp-sizes');
+  const sizes = ['S','M','L','XL','XXL'];
+  sizesEl.innerHTML = sizes.map(s=>`
+    <button class="size-btn${p.stock[s]===0?' unavail':''}" onclick="${p.stock[s]>0?`selectSize('${s}')`:'void(0)'}" id="szbtn-${s}">
+      ${s}${p.stock[s]===0?' ✕':''}
+    </button>`).join('');
+  const inStock = Object.values(p.stock).some(v=>v>0);
+  document.getElementById('pdp-add').disabled = !inStock;
+  document.getElementById('pdp-buy').disabled = !inStock;
+  document.getElementById('pdp-overlay').style.display = 'flex';
+}
+function selectSize(s){
+  selectedSize=s;
+  document.querySelectorAll('.size-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('szbtn-'+s)?.classList.add('active');
+}
+function closePDP(e){if(e.target===document.getElementById('pdp-overlay'))closePDPDirect();}
+function closePDPDirect(){document.getElementById('pdp-overlay').style.display='none';currentPDP=null;selectedSize=null;}
+function addFromPDP(){
+  if(!currentPDP)return;
+  if(!selectedSize){showToast('⚠️ Please select a size');return;}
+  addToCart(currentPDP.id, selectedSize);
+  closePDPDirect();
+}
+function buyNow(){
+  if(!currentPDP)return;
+  if(!selectedSize){showToast('⚠️ Please select a size');return;}
+  addToCart(currentPDP.id, selectedSize);
+  closePDPDirect();
+  showPage('checkout');
+}
+function quickAdd(id){
+  const p = products.find(x=>x.id===id);
+  if(!p)return;
+  const firstAvail = Object.entries(p.stock).find(([s,q])=>q>0);
+  if(!firstAvail){showToast('Out of stock');return;}
+  openPDP(id);
+}
+
+// ====== CART ======
+function addToCart(pid, size){
+  const p = products.find(x=>x.id===pid);
+  if(!p)return;
+  const key = `${pid}-${size}`;
+  const existing = cart.find(i=>i.key===key);
+  if(existing){
+    if(existing.qty<p.stock[size]){existing.qty++;}
+    else{showToast('Max stock reached');return;}
+  } else {
+    cart.push({key,pid,size,qty:1,name:p.name,price:p.salePrice||p.price,emoji:p.emoji});
+  }
+  updateCartUI();
+  showToast(`🛍 Added to bag — ${p.name} (${size})`);
+}
+function removeFromCart(key){
+  cart = cart.filter(i=>i.key!==key);
+  updateCartUI();
+  renderCartPanel();
+}
+function changeQty(key, delta){
+  const item = cart.find(i=>i.key===key);
+  if(!item)return;
+  const p = products.find(x=>x.id===item.pid);
+  const newQty = item.qty+delta;
+  if(newQty<=0){removeFromCart(key);return;}
+  if(newQty>p.stock[item.size]){showToast('Max stock reached');return;}
+  item.qty=newQty;
+  updateCartUI();
+  renderCartPanel();
+}
+function getCartTotal(){return cart.reduce((s,i)=>s+i.price*i.qty,0);}
+function updateCartUI(){
+  const count = cart.reduce((s,i)=>s+i.qty,0);
+  const badge = document.getElementById('cart-badge');
+  badge.textContent=count;badge.style.display=count?'flex':'none';
+  const total = getCartTotal();
+  const sub = document.getElementById('cart-subtotal');
+  const tot = document.getElementById('cart-total-display');
+  if(sub) sub.textContent='₹'+total.toLocaleString();
+  if(tot) tot.textContent='₹'+total.toLocaleString();
+  if(document.getElementById('cart-panel').style.display==='flex') renderCartPanel();
+}
+function renderCartPanel(){
+  const el = document.getElementById('cart-items-list');
+  if(cart.length===0){
+    el.innerHTML=`<div class="empty-cart"><p style="font-size:2rem">🛍</p><p>Your bag is empty</p><p style="font-size:0.85rem">Start shopping to add items!</p></div>`;
+    return;
+  }
+  el.innerHTML = cart.map(i=>`
+    <div class="cart-item">
+      <div class="cart-item-img">${i.emoji}</div>
+      <div class="cart-item-info">
+        <h4>${i.name}</h4>
+        <p>Size: ${i.size} · ₹${i.price.toLocaleString()} each</p>
+        <div class="qty-ctrl">
+          <button class="qty-btn" onclick="changeQty('${i.key}',-1)">−</button>
+          <span class="qty-num">${i.qty}</span>
+          <button class="qty-btn" onclick="changeQty('${i.key}',1)">+</button>
+          <button class="remove-btn" onclick="removeFromCart('${i.key}')">Remove</button>
+        </div>
+      </div>
+      <div class="cart-item-price">₹${(i.price*i.qty).toLocaleString()}</div>
+    </div>`).join('');
+}
+function toggleCart(){
+  const panel = document.getElementById('cart-panel');
+  panel.style.display = panel.style.display==='flex'?'none':'flex';
+  if(panel.style.display==='flex') renderCartPanel();
+}
+function goToCheckout(){
+  if(cart.length===0){showToast('Your cart is empty');return;}
+  toggleCart();showPage('checkout');
+}
+
+// ====== CHECKOUT ======
+const PAYMENT_METHODS = [
+  {id:'upi',label:'UPI (Any UPI App)',icon:'UPI'},
+  {id:'gpay',label:'Google Pay',icon:'GPay'},
+  {id:'phonepe',label:'PhonePe',icon:'PhPe'},
+  {id:'paytm',label:'Paytm',icon:'Paytm'},
+  {id:'card',label:'Credit / Debit Card',icon:'Card'},
+  {id:'netbank',label:'Net Banking',icon:'Bank'},
+];
+let selectedPayment = 'upi';
+function renderCheckout(){
+  const payEl = document.getElementById('payment-options');
+  if(payEl) payEl.innerHTML = PAYMENT_METHODS.map(m=>`
+    <label class="payment-option${selectedPayment===m.id?' selected':''}" onclick="selectPayment('${m.id}')">
+      <input type="radio" name="payment" value="${m.id}" ${selectedPayment===m.id?'checked':''}>
+      <div class="payment-logo">${m.icon}</div>
+      <span style="font-size:0.9rem;font-weight:500">${m.label}</span>
+    </label>`).join('');
+  const itemsEl = document.getElementById('checkout-items');
+  if(itemsEl) itemsEl.innerHTML = cart.map(i=>`
+    <div class="summary-item">
+      <div class="summary-thumb">${i.emoji}</div>
+      <div class="summary-item-info">
+        <div style="font-weight:500">${i.name}</div>
+        <div style="color:var(--muted)">Size: ${i.size} · Qty: ${i.qty}</div>
+      </div>
+      <div class="summary-item-price">₹${(i.price*i.qty).toLocaleString()}</div>
+    </div>`).join('');
+  const subtotal = getCartTotal();
+  const gst = Math.round(subtotal*0.05);
+  const total = subtotal+gst;
+  document.getElementById('co-subtotal').textContent='₹'+subtotal.toLocaleString();
+  document.getElementById('co-gst').textContent='₹'+gst.toLocaleString();
+  document.getElementById('co-total').textContent='₹'+total.toLocaleString();
+}
+function selectPayment(id){
+  selectedPayment=id;renderCheckout();
+}
+function placeOrder(){
+  const fname=document.getElementById('c-fname')?.value;
+  const email=document.getElementById('c-email')?.value;
+  const addr=document.getElementById('c-addr1')?.value;
+  if(!fname||!email||!addr){showToast('⚠️ Please fill in all required fields');return;}
+  if(cart.length===0){showToast('Your cart is empty');return;}
+  const orderId='ZB-'+Math.floor(100000+Math.random()*900000);
+  orders.unshift({id:orderId,customer:fname,date:new Date().toISOString().slice(0,10),total:'₹'+getCartTotal().toLocaleString(),payment:selectedPayment,status:'pending',items:cart.map(i=>i.name)});
+  document.getElementById('order-id-display').textContent='#'+orderId;
+  cart=[];updateCartUI();
+  showPage('success');
+}
+
+// ====== ADMIN ======
+let editingProductId = null;
+function renderAdmin(){
+  document.getElementById('admin-product-count').textContent=products.length;
+  renderAdminProducts();
+  renderRecentOrders();
+  renderAllOrders();
+  renderCatAnalytics();
+  renderTopProducts();
+  renderAdminCategories();
+  renderSizeInputs();
+}
+function showAdminTab(tab, el){
+  document.querySelectorAll('[id^=admin-]').forEach(e=>e.style.display='none');
+  document.getElementById('admin-'+tab).style.display='block';
+  document.querySelectorAll('.admin-nav-item').forEach(e=>e.classList.remove('active'));
+  if(el) el.classList.add('active');
+  if(tab==='add-product') renderSizeInputs();
+}
+function renderSizeInputs(){
+  const el = document.getElementById('size-stock-inputs');
+  if(!el) return;
+  const sizes=['S','M','L','XL','XXL'];
+  el.innerHTML=`<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0.75rem">
+    ${sizes.map(s=>`<div>
+      <label class="form-label">${s}</label>
+      <input class="form-input" id="sz-${s}" type="number" placeholder="0" min="0" value="0">
+    </div>`).join('')}
+  </div>`;
+}
+function renderAdminProducts(){
+  const el=document.getElementById('admin-products-table');
+  if(!el)return;
+  el.innerHTML=products.map(p=>{
+    const total=Object.values(p.stock).reduce((a,b)=>a+b,0);
+    const cls=total===0?'stock-out':total<5?'stock-low':'stock-in';
+    const label=total===0?'Out of Stock':total<5?`Low (${total})`:total;
+    return `<tr>
+      <td><strong>${p.emoji} ${p.name}</strong></td>
+      <td>${p.cat}</td>
+      <td>₹${(p.salePrice||p.price).toLocaleString()}</td>
+      <td><span class="stock-badge ${cls}">${label}</span></td>
+      <td style="display:flex;gap:0.5rem;padding:0.75rem 1rem">
+        <button class="admin-btn btn-edit" onclick="editProduct(${p.id})">Edit</button>
+        <button class="admin-btn btn-del" onclick="deleteProduct(${p.id})">Delete</button>
+      </td>
+    </tr>`;
+  }).join('');
+}
+function editProduct(id){
+  const p=products.find(x=>x.id===id);if(!p)return;
+  editingProductId=id;
+  showAdminTab('add-product', null);
+  document.getElementById('add-product-title').textContent='Edit Product';
+  document.getElementById('ap-name').value=p.name;
+  document.getElementById('ap-cat').value=p.cat;
+  document.getElementById('ap-desc').value=p.desc;
+  document.getElementById('ap-price').value=p.price;
+  document.getElementById('ap-sale').value=p.salePrice||'';
+  document.getElementById('ap-emoji').value=p.emoji;
+  document.getElementById('tag-new').checked=p.isNew;
+  document.getElementById('tag-best').checked=p.isBest;
+  document.getElementById('tag-sale').checked=p.isSale;
+  const sizes=['S','M','L','XL','XXL'];
+  setTimeout(()=>{sizes.forEach(s=>{const el=document.getElementById('sz-'+s);if(el)el.value=p.stock[s]||0;});},50);
+}
+function cancelEdit(){editingProductId=null;document.getElementById('add-product-title').textContent='Add New Product';['ap-name','ap-desc','ap-price','ap-sale','ap-emoji'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});renderSizeInputs();}
+function saveProduct(){
+  const name=document.getElementById('ap-name').value.trim();
+  const cat=document.getElementById('ap-cat').value;
+  const desc=document.getElementById('ap-desc').value.trim();
+  const price=parseFloat(document.getElementById('ap-price').value)||0;
+  const sale=parseFloat(document.getElementById('ap-sale').value)||null;
+  const emoji=document.getElementById('ap-emoji').value||'👗';
+  const isNew=document.getElementById('tag-new').checked;
+  const isBest=document.getElementById('tag-best').checked;
+  const isSale=document.getElementById('tag-sale').checked;
+  if(!name){showToast('⚠️ Product name required');return;}
+  const sizes=['S','M','L','XL','XXL'];
+  const stock={};sizes.forEach(s=>{stock[s]=parseInt(document.getElementById('sz-'+s)?.value)||0;});
+  if(editingProductId){
+    const idx=products.findIndex(p=>p.id===editingProductId);
+    if(idx>=0){products[idx]={...products[idx],name,cat,desc,price,salePrice:sale,emoji,isNew,isBest,isSale,stock};}
+    showToast('✅ Product updated');
+  } else {
+    products.push({id:Date.now(),name,cat,desc,price,salePrice:sale,emoji,isNew,isBest,isSale,stock});
+    showToast('✅ Product added');
+  }
+  editingProductId=null;cancelEdit();renderAdmin();showAdminTab('products',document.querySelector('.admin-nav-item:nth-child(2)'));
+  renderHome();
+}
+function deleteProduct(id){
+  if(confirm('Delete this product?')){products=products.filter(p=>p.id!==id);renderAdmin();showToast('🗑 Product deleted');}
+}
+function renderRecentOrders(){
+  const el=document.getElementById('recent-orders-table');
+  if(!el)return;
+  const statusMap={'pending':'status-pending','processing':'status-processing','shipped':'status-shipped','delivered':'status-delivered'};
+  el.innerHTML=orders.slice(0,5).map(o=>`<tr>
+    <td><strong>${o.id}</strong></td>
+    <td>${o.customer}</td>
+    <td>${o.items.join(', ')}</td>
+    <td>${o.total}</td>
+    <td><span class="order-status ${statusMap[o.status]||''}">${o.status}</span></td>
+  </tr>`).join('');
+}
+function renderAllOrders(){
+  const el=document.getElementById('all-orders-table');
+  if(!el)return;
+  const statusMap={'pending':'status-pending','processing':'status-processing','shipped':'status-shipped','delivered':'status-delivered'};
+  const nextStatus={'pending':'processing','processing':'shipped','shipped':'delivered','delivered':'delivered'};
+  el.innerHTML=orders.map((o,i)=>`<tr>
+    <td><strong>${o.id}</strong></td>
+    <td>${o.customer}</td>
+    <td>${o.date}</td>
+    <td>${o.total}</td>
+    <td>${o.payment}</td>
+    <td><span class="order-status ${statusMap[o.status]||''}">${o.status}</span></td>
+    <td><button class="admin-btn btn-edit" onclick="advanceOrder(${i})">→ ${nextStatus[o.status]||'done'}</button></td>
+  </tr>`).join('');
+}
+function advanceOrder(i){
+  const ns={'pending':'processing','processing':'shipped','shipped':'delivered'};
+  if(orders[i].status!=='delivered'){orders[i].status=ns[orders[i].status];renderAllOrders();renderRecentOrders();showToast('Order status updated');}}
+function renderCatAnalytics(){
+  const el=document.getElementById('cat-analytics');if(!el)return;
+  const cats=CATEGORIES.filter(c=>c!=='All');
+  const max=Math.max(...cats.map(c=>products.filter(p=>p.cat===c).length));
+  el.innerHTML=cats.map(c=>{
+    const count=products.filter(p=>p.cat===c).length;
+    const pct=max?Math.round(count/max*100):0;
+    const revenue=products.filter(p=>p.cat===c).reduce((s,p)=>{return s+(p.salePrice||p.price)*Math.floor(Math.random()*50+5);},0);
+    return `<div style="display:flex;align-items:center;gap:1rem;margin-bottom:0.75rem">
+      <div style="width:120px;font-size:0.85rem;color:var(--mid);flex-shrink:0">${c}</div>
+      <div style="flex:1;background:var(--cream2);border-radius:4px;height:20px;overflow:hidden">
+        <div style="height:100%;width:${pct}%;background:var(--rose3);border-radius:4px;transition:width 0.5s"></div>
+      </div>
+      <div style="width:80px;text-align:right;font-size:0.85rem;font-weight:600">₹${revenue.toLocaleString()}</div>
+    </div>`;
+  }).join('');
+}
+function renderTopProducts(){
+  const el=document.getElementById('top-products-table');if(!el)return;
+  const sorted=[...products].sort(()=>Math.random()-0.5).slice(0,5);
+  el.innerHTML=sorted.map(p=>{
+    const sold=Math.floor(Math.random()*200+20);
+    return `<tr>
+      <td>${p.emoji} ${p.name}</td>
+      <td>${p.cat}</td>
+      <td>${sold}</td>
+      <td>₹${((p.salePrice||p.price)*sold).toLocaleString()}</td>
+    </tr>`;
+  }).join('');
+}
+function renderAdminCategories(){
+  const el=document.getElementById('categories-list');if(!el)return;
+  el.innerHTML=`<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem">
+    ${CATEGORIES.filter(c=>c!=='All').map(c=>`
+    <div style="background:#fff;border-radius:var(--r);padding:1.25rem;border:1px solid var(--cream3)">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:0.75rem">
+        <span style="font-size:1.5rem">${CAT_ICONS[c]||'👗'}</span>
+        <span class="stock-badge stock-in">${products.filter(p=>p.cat===c).length} items</span>
+      </div>
+      <h4 style="font-size:0.95rem;margin-bottom:0.5rem">${c}</h4>
+      <p style="font-size:0.8rem;color:var(--muted)">${products.filter(p=>p.cat===c&&Object.values(p.stock).some(v=>v>0)).length} in stock</p>
+    </div>`).join('')}
+  </div>`;
+}
+
+// ====== FAQ ======
+const FAQS = [
+  {q:'How long does delivery take?',a:'Standard delivery takes 3–7 business days. Express delivery (1–3 days) is available at checkout for ₹99.'},
+  {q:'What payment methods do you accept?',a:'We accept UPI, Google Pay, PhonePe, Paytm, Credit/Debit Cards, and Net Banking. We do not offer Cash on Delivery.'},
+  {q:'Can I return or exchange an item?',a:'Yes! Returns are accepted within 15 days of delivery for unused items in original packaging. Sale items are non-returnable. Contact support@zarabloom.in.'},
+  {q:'How do I track my order?',a:'Once shipped, you\'ll receive a tracking link via email. You can also use our Order Tracking page with your Order ID.'},
+  {q:'How do I choose my size?',a:'Each product page shows available sizes. We recommend checking our size guide. If between sizes, size up. Our team is happy to help at +91 98765 43210.'},
+  {q:'Is it safe to enter my card details?',a:'Absolutely. All payments are processed through PCI-DSS compliant payment gateways with 256-bit SSL encryption.'},
+  {q:'Do you ship outside India?',a:'Currently we only ship within India. International shipping is coming soon — join our newsletter to be notified!'},
+  {q:'How do I care for my garments?',a:'Care instructions are printed on each garment. Generally: gentle machine wash or hand wash in cold water, do not bleach, iron on low-medium heat.'},
+];
+function renderFAQ(){
+  const el=document.getElementById('faq-list');
+  if(!el)return;
+  el.innerHTML=FAQS.map((f,i)=>`
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFAQ(${i})">
+        ${f.q}
+        <span class="faq-toggle" id="faq-t-${i}">+</span>
+      </div>
+      <div class="faq-a" id="faq-a-${i}">${f.a}</div>
+    </div>`).join('');
+}
+function toggleFAQ(i){
+  const a=document.getElementById('faq-a-'+i);
+  const t=document.getElementById('faq-t-'+i);
+  a.classList.toggle('open');
+  t.textContent=a.classList.contains('open')?'−':'+';
+}
+
+// ====== TRACKING ======
+function trackOrder(){
+  const val=document.getElementById('track-input').value.trim();
+  if(!val){showToast('⚠️ Please enter an order ID');return;}
+  document.getElementById('track-order-id').textContent='#'+val;
+  document.getElementById('tracking-result').style.display='block';
+}
+
+// ====== TOAST ======
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+
+// ====== INIT ======
+renderHome();
+</script>
+</body>
+</html>
